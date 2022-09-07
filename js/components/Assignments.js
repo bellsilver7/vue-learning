@@ -8,16 +8,25 @@ export default {
   },
 
   template: `
-    <section class="space-y-6">
-      <assignment-list :assignments="filters.inProgress" title="In Porgress"></assignment-list>
-      <assignment-list :assignments="filters.completed" title="In Completed"></assignment-list>
-      <assignment-create @add="add"></assignment-create> 
+    <section class="flex gap-8">
+      <assignment-list :assignments="filters.inProgress" title="In Porgress">
+        <assignment-create @add="add"></assignment-create>
+      </assignment-list>
+      <div v-show="showCompleted">
+        <assignment-list
+          :assignments="filters.completed" 
+          title="In Completed" 
+          can-toggle
+          @toggle="showCompleted = !showCompleted"
+        ></assignment-list>
+      </div>
     </section>
   `,
 
   data() {
     return {
       assignments: [],
+      showCompleted: true,
     };
   },
 
