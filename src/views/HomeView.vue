@@ -1,18 +1,9 @@
 <script setup>
-import { ref } from "vue";
-import TabbaleTextarea from "@/components/TabbaleTextarea.vue";
-
-let comment = ref("test value");
-
-setTimeout(() => {
-  comment.value = "It works!";
-}, 2000);
+import Quiz from "@/components/Quiz/Quiz.vue";
 </script>
 
 <template>
   <main>
-    <form action="">
-      <TabbaleTextarea v-model="comment" style="width: 100%; height: 300px" />
-    </form>
+    <Quiz :quiz="{ name: 'My first quiz', questions: [] }" />
   </main>
 </template>
