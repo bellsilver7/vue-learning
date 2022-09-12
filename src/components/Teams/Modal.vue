@@ -5,7 +5,7 @@ defineProps({
 </script>
 
 <template>
-  <transition name="modal">
+  <Transition name="modal">
     <div v-if="show" class="modal-mask">
       <div class="modal-container">
         <div>
@@ -18,7 +18,7 @@ defineProps({
         </footer>
       </div>
     </div>
-  </transition>
+  </Transition>
 </template>
 
 <style>
